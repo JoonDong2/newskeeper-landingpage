@@ -105,97 +105,8 @@
             font-family: 'Jua', sans-serif;
         }
     </style>
-</head>
-<body onload="onload()" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
-    <div id="container" class="container">
-        <div>
-            <p id="title" class="title">직관적인 스크래핑</p>
-            <p id="desc" class="desc">스크랩한 기사를 한 눈에<br>확인할 수 있습니다.</p>
-        </div>
-        
-        <!-- Slider main container -->
-        <div id="swiper-container" class="swiper-container">
-    
-            <!-- IPhone Area -->
-            <div id="iphone-container" class="iphone-container">
-                <div style="flex:1; height: 100%; background-color: #000; z-index: 10;"></div>
-                <div style="position:relative; z-index: 10;">
-                    <img id="iphone" style="position: relative; z-index: 5; height: 375px;" src="./images/app/iphone.png"/>
-                    <div style="z-index: 3; position: absolute; top: 0; left: 0; width: 8px; height: 40px; background-color: #000;"></div>
-                    <div style="z-index: 3; position: absolute; top: 0; right: 0; width: 8px; height: 40px; background-color: #000;"> </div>
-                    <div style="z-index: 3; position: absolute; bottom: 0; left: 0; width: 8px; height: 40px; background-color: #000;"> </div>
-                    <div style="z-index: 3; position: absolute; bottom: 0; right: 0; width: 8px; height: 40px; background-color: #000;"> </div>
-                </div>
-                <div style="flex:1; height: 100%; background-color: #000; z-index: 10;"></div>
-            </div>
-    
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">
-                    <div class="swiper-item">
-                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/1.jpg"/>
-                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    </div>
-                </div>
-                
-                <div class="swiper-slide">
-                    <div class="swiper-item">
-                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/2.jpg"/>
-                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    </div>
-                </div>
-    
-                <div class="swiper-slide">
-                    <div class="swiper-item">
-                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/3.jpg"/>
-                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    </div>
-                </div>
-    
-                <div class="swiper-slide">
-                    <div class="swiper-item">
-                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/4.jpg"/>
-                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    </div>
-                </div>
-    
-                <div class="swiper-slide">
-                    <div class="swiper-item">
-                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/5.jpg"/>
-                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    </div>
-                </div>
-    
-                <div class="swiper-slide">
-                    <div class="swiper-item">
-                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/6.jpg"/>
-                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Add Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-    
-        <div class="store-container">
-            <a id="appstore" onclick="touch_appstore()" style="display: none;" href="https://apps.apple.com/kr/app/id1541146594">
-                <img id="appstore-image" src="./images/app/appstore.svg" />
-            </a>
 
-            <div id="dummy" style="width: 15px; height: 15px; display: none;"></div>
-
-            <a id="playstore" onclick="touch_playstore()" style="display: none;" href="market://details?id=com.joondong.news_keeper">
-                <img id="playstore-image" src="./images/app/playstore.svg" />
-            </a>
-        </div>
-
-        <p id="other-desc" class="other-desc">모바일에서는 스토어로 바로 연결됩니다.</p>
-    </div>
-
-    <script>
+    <script defer>
         let store_touched = false;
         let isOther = false;
 
@@ -327,5 +238,94 @@
         }
     </script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<body onload="onload()" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+    <div id="container" class="container">
+        <div>
+            <p id="title" class="title">직관적인 스크래핑</p>
+            <p id="desc" class="desc">스크랩한 기사를 한 눈에<br>확인할 수 있습니다.</p>
+        </div>
+        
+        <!-- Slider main container -->
+        <div id="swiper-container" class="swiper-container">
+    
+            <!-- IPhone Area -->
+            <div id="iphone-container" class="iphone-container">
+                <div style="flex:1; height: 100%; background-color: #000; z-index: 10;"></div>
+                <div style="position:relative; z-index: 10;">
+                    <img id="iphone" style="position: relative; z-index: 5; height: 375px;" src="./images/app/iphone.png"/>
+                    <div style="z-index: 3; position: absolute; top: 0; left: 0; width: 8px; height: 40px; background-color: #000;"></div>
+                    <div style="z-index: 3; position: absolute; top: 0; right: 0; width: 8px; height: 40px; background-color: #000;"> </div>
+                    <div style="z-index: 3; position: absolute; bottom: 0; left: 0; width: 8px; height: 40px; background-color: #000;"> </div>
+                    <div style="z-index: 3; position: absolute; bottom: 0; right: 0; width: 8px; height: 40px; background-color: #000;"> </div>
+                </div>
+                <div style="flex:1; height: 100%; background-color: #000; z-index: 10;"></div>
+            </div>
+    
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="swiper-item">
+                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/1.jpg"/>
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                </div>
+                
+                <div class="swiper-slide">
+                    <div class="swiper-item">
+                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/2.jpg"/>
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                </div>
+    
+                <div class="swiper-slide">
+                    <div class="swiper-item">
+                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/3.jpg"/>
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                </div>
+    
+                <div class="swiper-slide">
+                    <div class="swiper-item">
+                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/4.jpg"/>
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                </div>
+    
+                <div class="swiper-slide">
+                    <div class="swiper-item">
+                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/5.jpg"/>
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                </div>
+    
+                <div class="swiper-slide">
+                    <div class="swiper-item">
+                        <img class="swiper-image swiper-lazy" style="height: 350px" src="./images/app/kr/6.jpg"/>
+                        <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    
+        <div class="store-container">
+            <a id="appstore" onclick="touch_appstore()" style="display: none;" href="itms-appss://apps.apple.com/kr/app/id1541146594">
+                <img id="appstore-image" src="./images/app/appstore.svg" />
+            </a>
+
+            <div id="dummy" style="width: 15px; height: 15px; display: none;"></div>
+
+            <a id="playstore" onclick="touch_playstore()" style="display: none;" href="market://details?id=com.joondong.news_keeper">
+                <img id="playstore-image" src="./images/app/playstore.svg" />
+            </a>
+        </div>
+
+        <p id="other-desc" class="other-desc">모바일에서는 버튼을 터치하면 스토어로 연결됩니다.</p>
+    </div>
 </body>
 </html>
