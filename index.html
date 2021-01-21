@@ -17,7 +17,7 @@
     <meta name="author" content="뉴스 매니저" />
     <meta name="keywords" content="뉴스 모음 네이버 카카오 네이트 추천 앱 어플리케이션 news application">
     <meta name="subject" content="정말 쉬운 뉴스 관리 앱" />
-    <title>뉴스 키퍼</title>
+    <title>뉴스 매니저</title>
     <meta name="description" content="정말 쉬운 뉴스 관리 앱. 스크랩한 기사를 한 눈에 확인할 수 있습니다. 자주 찾는 언론사를 즐겨찾기에 추가해 보세요. 내가 활동한 내용을 한 눈에 확인할 수 있어요. 나와 마음이 맞는 사용자를 구독해 보세요. 다른 사용자가 공유한 스크랩에 댓글을 남겨 보세요.">
     <meta property="og:description" content="정말 쉬운 뉴스 관리 앱.직관적인 뉴스 관리 App. 스크랩한 기사를 한 눈에 확인할 수 있습니다. 자주 찾는 언론사를 즐겨찾기에 추가해 보세요. 내가 활동한 내용을 한 눈에 확인할 수 있어요. 나와 마음이 맞는 사용자를 구독해 보세요. 다른 사용자가 공유한 스크랩에 댓글을 남겨 보세요.">
     <meta property="og:image" content="https://xn--vg1b7f65r8vjcwg.kr/logo.png">
@@ -175,15 +175,15 @@
         </div>
     
         <div class="store-container">
-            <a id="appstore" onclick="touch_appstore()" style="display: none;">
+            <div id="appstore" onclick="touch_appstore()" style="display: none;">
                 <img id="appstore-image" src="./images/app/appstore.svg" />
-            </a>
+            </div>
 
             <div id="dummy" style="width: 15px; height: 15px; display: none;"></div>
 
-            <a id="playstore" onclick="touch_playstore()" style="display: none;">
+            <div id="playstore" onclick="touch_playstore()" style="display: none;">
                 <img id="playstore-image" src="./images/app/playstore.svg" />
-            </a>
+            </div>
         </div>
     </div>
     
@@ -201,24 +201,30 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
 
-        function touch_appstore() {
-            if(!store_touched && !isOther) {
-                gtag('event', 'touch_app_store');
-            }
-            store_touched = true;
+        function touch_appstore(event) {
+            try {
+                event.preventDefault();
+                if(!store_touched && !isOther) {
+                    gtag('event', 'touch_app_store');
+                }
+                store_touched = true;
 
-            var win = window.open(url, '_blank');
-            win.focus();
+                var win = window.open("https://apps.apple.com/kr/app/id1541146594", '_blank');
+                win.focus();
+            } catch(e) {}
         }
 
-        function touch_playstore() {
-            if(!store_touched && !isOther) {
-                gtag('event', 'touch_play_store');
-            }
-            store_touched = true;
+        function touch_playstore(event) {
+            try {
+                event.preventDefault();
+                if(!store_touched && !isOther) {
+                    gtag('event', 'touch_play_store');
+                }
+                store_touched = true;
 
-            var win = window.open(url, '_blank');
-            win.focus();
+                var win = window.open("https://play.google.com/store/apps/details?id=com.joondong.news_keeper", '_blank');
+                win.focus();
+            } catch(e) {}
         }
 
         function checkMobile(){
@@ -259,19 +265,26 @@
         }]
 
         function onload() {
-            const mobile = checkMobile()
+            const mobile = checkMobile();
+            const playstore = document.getElementById("playstore");
+            const appstore = document.getElementById("appstore");
+
+            playstore.addEventListener('click', touch_playstore);
+            appstore.addEventListener('click', touch_appstore);
+
+            playstore.style.cursor = "pointer";
+            appstore.style.cursor = "pointer";
 
             if(mobile === "android") {
-                document.getElementById("playstore").style.display = "block";
+                playstore.style.display = "block";
                 document.getElementById("playstore-image").style.height = `${Math.min(window.innerHeight * 0.085, 100)}px`;
             } 
             else if(mobile === "ios") {
-                document.getElementById("appstore").style.display = "block";
+                appstore.style.display = "block";
                 document.getElementById("appstore-image").style.height = `${Math.min(window.innerHeight * 0.085, 100)}px`;
             }
             else {
-                isOther = true
-                const playstore = document.getElementById("playstore");
+                isOther = true;
                 playstore.style.display = "block";
                 document.getElementById("playstore-image").style.height = `${Math.min(window.innerHeight * 0.085, 100)}px`;
                 
@@ -280,7 +293,6 @@
                 document.getElementById("appstore-image").style.height = `${Math.min(window.innerHeight * 0.085, 100)}px`;
 
                 document.getElementById("dummy").style.display = "block";
-                document.getElementById("other-desc").style.display = "block";
             }
 
             var swiper = new Swiper('.swiper-container', {
