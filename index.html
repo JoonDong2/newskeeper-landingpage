@@ -13,14 +13,14 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="뉴스 키퍼" />
-    <meta name="author" content="뉴스 키퍼" />
+    <meta name="generator" content="뉴스 매니저" />
+    <meta name="author" content="뉴스 매니저" />
     <meta name="keywords" content="뉴스 모음 네이버 카카오 네이트 추천 앱 어플리케이션 news application">
-    <meta name="subject" content="직관적인 뉴스 스크랩 어플리케이션" />
+    <meta name="subject" content="정말 쉬운 뉴스 관리 앱" />
     <title>뉴스 키퍼</title>
-    <meta name="description" content="직관적인 뉴스 관리 App. 스크랩한 기사를 한 눈에 확인할 수 있습니다. 자주 찾는 언론사를 즐겨찾기에 추가해 보세요. 내가 활동한 내용을 한 눈에 확인할 수 있어요. 나와 마음이 맞는 사용자를 구독해 보세요. 다른 사용자가 공유한 스크랩에 댓글을 남겨 보세요.">
-    <meta property="og:description" content="직관적인 뉴스 관리 App. 스크랩한 기사를 한 눈에 확인할 수 있습니다. 자주 찾는 언론사를 즐겨찾기에 추가해 보세요. 내가 활동한 내용을 한 눈에 확인할 수 있어요. 나와 마음이 맞는 사용자를 구독해 보세요. 다른 사용자가 공유한 스크랩에 댓글을 남겨 보세요.">
-    <meta property="og:image" content="https://xn--vg1b002ahrkhxc.kr/logo.png">
+    <meta name="description" content="정말 쉬운 뉴스 관리 앱. 스크랩한 기사를 한 눈에 확인할 수 있습니다. 자주 찾는 언론사를 즐겨찾기에 추가해 보세요. 내가 활동한 내용을 한 눈에 확인할 수 있어요. 나와 마음이 맞는 사용자를 구독해 보세요. 다른 사용자가 공유한 스크랩에 댓글을 남겨 보세요.">
+    <meta property="og:description" content="정말 쉬운 뉴스 관리 앱.직관적인 뉴스 관리 App. 스크랩한 기사를 한 눈에 확인할 수 있습니다. 자주 찾는 언론사를 즐겨찾기에 추가해 보세요. 내가 활동한 내용을 한 눈에 확인할 수 있어요. 나와 마음이 맞는 사용자를 구독해 보세요. 다른 사용자가 공유한 스크랩에 댓글을 남겨 보세요.">
+    <meta property="og:image" content="https://xn--vg1b7f65r8vjcwg.kr/logo.png">
 
     <link rel="stylesheet" type="text/css" href="./reset.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -175,17 +175,16 @@
         </div>
     
         <div class="store-container">
-            <a id="appstore" onclick="touch_appstore()" style="display: none;" href="https://apps.apple.com/kr/app/id1541146594">
+            <a id="appstore" onclick="touch_appstore()" style="display: none;">
                 <img id="appstore-image" src="./images/app/appstore.svg" />
             </a>
 
             <div id="dummy" style="width: 15px; height: 15px; display: none;"></div>
 
-            <a id="playstore" onclick="touch_playstore()" style="display: none;" href="market://details?id=com.joondong.news_keeper">
+            <a id="playstore" onclick="touch_playstore()" style="display: none;">
                 <img id="playstore-image" src="./images/app/playstore.svg" />
             </a>
         </div>
-        <p id="other-desc" class="other-desc">모바일에서는 버튼을 터치하면 스토어로 연결됩니다.</p>
     </div>
     
     <div style="margin-top: 15px;">
@@ -203,21 +202,23 @@
         function gtag(){dataLayer.push(arguments);}
 
         function touch_appstore() {
-            if(store_touched || isOther) {
-                return
+            if(!store_touched && !isOther) {
+                gtag('event', 'touch_app_store');
             }
-
             store_touched = true;
-            gtag('event', 'touch_app_store');
+
+            var win = window.open(url, '_blank');
+            win.focus();
         }
 
         function touch_playstore() {
-            if(store_touched || isOther) {
-                return
+            if(!store_touched && !isOther) {
+                gtag('event', 'touch_play_store');
             }
-
             store_touched = true;
-            gtag('event', 'touch_play_store');
+
+            var win = window.open(url, '_blank');
+            win.focus();
         }
 
         function checkMobile(){
@@ -272,12 +273,10 @@
                 isOther = true
                 const playstore = document.getElementById("playstore");
                 playstore.style.display = "block";
-                playstore.style.pointerEvents = "none";
                 document.getElementById("playstore-image").style.height = `${Math.min(window.innerHeight * 0.085, 100)}px`;
                 
                 const appstore = document.getElementById("appstore");
                 appstore.style.display = "block";
-                appstore.style.pointerEvents = "none";
                 document.getElementById("appstore-image").style.height = `${Math.min(window.innerHeight * 0.085, 100)}px`;
 
                 document.getElementById("dummy").style.display = "block";
