@@ -205,9 +205,9 @@
             try {
                 event.preventDefault();
                 if(!store_touched && !isOther) {
+                    store_touched = true;
                     gtag('event', 'touch_app_store');
                 }
-                store_touched = true;
 
                 var win = window.open("https://apps.apple.com/kr/app/id1541146594", '_blank');
                 win.focus();
@@ -218,9 +218,9 @@
             try {
                 event.preventDefault();
                 if(!store_touched && !isOther) {
+                    store_touched = true;
                     gtag('event', 'touch_play_store');
                 }
-                store_touched = true;
 
                 var win = window.open("https://play.google.com/store/apps/details?id=com.joondong.news_keeper", '_blank');
                 win.focus();
